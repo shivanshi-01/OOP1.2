@@ -18,12 +18,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// Deck mutable array
+    // suits c, h, s, o
+    // card a,2,3,4, 5, 6, 7, 8, 9, 10, j, q, k
+    NSArray *cards = @[@"A", @"2", @"3",@"4", @"5", @"6",@"7", @"8", @"9",@"10", @"J", @"Q", @"K"];
+    NSArray *suits = @[@"C", @"H", @"S", @"D"];
+    NSMutableArray *deck =[NSMutableArray array];
+    
+    for(NSString*suits in suits){
+        for (NSString *card in cards){
+           AOCard *cardInDeck =[[AOCard alloc] initWithSuit:suit value:card];
+            [deck addObject:cardInDeck];
+        }
+    }
+    NSLog(@"%@", deck);
+    
+    
+    for(NSString*suits in suits){
+        for (NSString *card in cards){
+            AOCard *cardInDeck =[[AOCard alloc] initWithSuit:suit value:card];
+            [deck removeObject:cardInDeck];
+        }
+    }
+    NSLog(@"%@", deck);
+    
 }
-
 @end
